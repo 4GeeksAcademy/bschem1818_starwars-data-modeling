@@ -39,8 +39,12 @@ class Datos_Favoritos(Base):
     id_Favoritos = Column(Integer, primary_key=True)
     user_Id = Column(Integer, ForeignKey('usuario.ID_Usuario'))
     Planeta_ID = Column(Integer, ForeignKey('planetas.ID_Planeta'))
+    planetas = relationship(Planetas)
     Personajes_Id = Column(Integer, ForeignKey('personajes.ID_Personajes'))
     usuario = relationship(Usuario)
+    planeta = relationship(Planetas)
+    personajes = relationship(Personajes)
+
 
     def to_dict(self):
         return {}
